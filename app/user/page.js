@@ -108,7 +108,7 @@ export default function Home() {
                 information to verify yourself. Otherwise, you couldn't make any
                 withdrawal requests to the system.{" "}
                 <a href="/user/kyc" className="text-gray-700">
-                  click here  
+                  click here
                 </a>{" "}
                 to submit KYC information.
               </Typography>
@@ -119,10 +119,13 @@ export default function Home() {
               </Box>
             </Stack>
           </Stack>
-          <Box className="mt-5 rounded-xl min-h-[50vh] mb-5 relative bg-[#242731] z-10">
-            <div
+          <Box className="mt-5 rounded-xl min-h-[60vh] sm:min-h-[50vh] mb-5 relative bg-[#242731] z-10">
+            <Box
               className="absolute left-1/2 transform -translate-x-1/2 rounded-xl h-[100%] w-[99%] bottom-[-10px] z-0"
-              style={{ background: "#21242D", padding: "30px" }}
+              sx={{
+                background: "#21242D",
+                padding: { md: "30px", xs: "10px" },
+              }}
             >
               <Stack
                 direction="column"
@@ -130,11 +133,11 @@ export default function Home() {
                 sx={{ height: "100%" }}
               >
                 <Stack
-                  direction="row"
+                  direction={{ md: "row", xs: "column" }}
                   justifyContent="space-between"
                   sx={{ height: "50%" }}
                 >
-                  <Box sx={{ width: "50%" }}>
+                  <Box sx={{ width: { md: "50%", xs: "100%" } }}>
                     <Typography className="text-white text-3xl font-semibold">
                       Total Balance
                     </Typography>
@@ -154,9 +157,18 @@ export default function Home() {
                       0.00000000 BTC
                     </Typography>
                   </Box>
-                  <Box sx={{ width: "50%" }} className="px-4">
+                  <Box
+                    sx={{
+                      width: { md: "50%", xs: "100%" },
+                      marginTop: { md: "", xs: "10px" },
+                    }}
+                    className="px-4  md:px-0"
+                  >
                     <Box>
-                      <Stack direction="row" justifyContent="flex-end">
+                      <Stack
+                        direction="row"
+                        justifyContent={{ md: "flex-end", xs: "space-between" }}
+                      >
                         <button
                           className="text-white flex row bg-blue-600 px-4 py-2 rounded-2xl hover:bg-transparent hover:border-blue-600 hover:border-2 mr-5"
                           style={{ alignItems: "center" }}
@@ -214,8 +226,9 @@ export default function Home() {
 
                 <Stack
                   sx={{
-                    height: "50%",
+                    height: "auto",
                     padding: "10px",
+                    marginTop: { md: "", xs: "70px" },
                   }}
                   direction={{ md: "row", xs: "column" }}
                   justifyContent="space-between"
@@ -227,6 +240,7 @@ export default function Home() {
                       border: "0.1px solid gray",
                       borderRadius: "10px",
                       padding: "25px 15px",
+                      marginBottom: { md: "", xs: "10px" },
                     }}
                   >
                     <Stack direction="row">
@@ -275,7 +289,7 @@ export default function Home() {
                   </Box>{" "}
                 </Stack>
               </Stack>
-            </div>
+            </Box>
           </Box>
 
           <Stack direction="row" justifyContent="space-between">
