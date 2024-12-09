@@ -292,8 +292,11 @@ export default function Home() {
             </Box>
           </Box>
 
-          <Stack direction="row" justifyContent="space-between">
-            <Box sx={{ width: "65%" }}>
+          <Stack
+            direction={{ md: "row", xs: "column" }}
+            justifyContent="space-between"
+          >
+            <Box sx={{ width: { md: "65%", xs: "100%" } }}>
               <Stack
                 direction="column"
                 spacing={2}
@@ -372,7 +375,7 @@ export default function Home() {
                 <Buy title="Sell" />
               </Stack> */}
             </Box>
-            <Box sx={{ width: "34%" }}>
+            <Box sx={{ width: { md: "34%", xs: "100%" } }}>
               <Stack spacing={2} direction="column" alignItems="center">
                 <Typography className="text-center text-xl">
                   Your Current Server
