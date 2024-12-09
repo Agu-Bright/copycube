@@ -80,7 +80,7 @@ const Sidebar = () => {
           background: "linear-gradient(20deg,#1F2128,  #1F2128, #0d0d0d)",
         }}
       >
-        <div className="px-5 border-white">
+        <div className="px-2 sm:px-2 md:px-4 border-white">
           {root === "user" && (
             <ul className="mt-2" style={{ marginTop: "10px" }}>
               <AccordionUsage />
@@ -313,28 +313,6 @@ const Sidebar = () => {
               </Link>
             </li>
           </ul>
-          {session?.user?.role === "admin" && (
-            <ul style={{ marginTop: "25px", border: "none" }}>
-              <li>
-                <Link
-                  href={`${root === "dashboard" ? "/user" : "/dashboard"}`}
-                  style={{
-                    display: "flex",
-                    border: "1px solid white",
-                    width: "90%",
-                    borderRadius: "10px",
-                  }}
-                >
-                  <DashboardIcon
-                    sx={{ marginRight: "10px", color: "#8075ff" }}
-                  />{" "}
-                  <div style={{ color: "white" }}>
-                    {root === "dashboard" ? "User Section" : "Dashboard"}
-                  </div>
-                </Link>
-              </li>
-            </ul>
-          )}
         </div>
       </Box>
     </>
