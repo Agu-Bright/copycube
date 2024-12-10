@@ -371,7 +371,7 @@ export default function Home() {
                       >
                         Trending{" "}
                       </Typography>
-                      <TradingViewWidget />
+                       <TradingViewWidget /> 
                     </Box>
                   </Box>
                 </Box>
