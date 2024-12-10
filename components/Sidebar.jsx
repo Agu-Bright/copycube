@@ -249,40 +249,131 @@ const Sidebar = () => {
             </ul>
           )}
           {root === "dashboard" && (
-            <ul style={{ marginTop: "10px" }}>
-              <li className={`${pathname === "/dashboard" ? "active" : ""}`}>
+            <ul className="mt-2" style={{ marginTop: "10px" }}>
+              <AccordionUsage />
+              <Divider sx={{ background: "rgba(95, 92, 92, 0.75)" }} />
+              <li
+                className={`${
+                  pathname === "/dashboard" ? "active" : ""
+                } text-white mt-3`}
+              >
                 <Link href="/dashboard" style={{ display: "flex" }}>
-                  <HomeIcon sx={{ marginRight: "10px" }} /> <div>Dashboard</div>
+                  <Image
+                    src="/img/donation.png"
+                    alt="deposit"
+                    width={20}
+                    height={20}
+                    className="mr-2"
+                  />
+                  <div className="text-gray-300">Dashboard</div>
                 </Link>
               </li>
-
               <li
                 className={`${
-                  pathname === "/dashboard/upload-logs" ? "active" : ""
-                }`}
+                  pathname === "/user" ? "active" : ""
+                } text-white mt-3`}
               >
-                <Link href="/dashboard/upload-logs" style={{ display: "flex" }}>
-                  <HomeRepairServiceIcon sx={{ marginRight: "10px" }} />{" "}
-                  <div>Manage Logs</div>
+                <Link
+                  href="/dashboard/deposit-request"
+                  style={{ display: "flex" }}
+                >
+                  <Image
+                    src="/img/deposit.png"
+                    alt="deposit"
+                    width={20}
+                    height={20}
+                    className="mr-2"
+                  />
+                  <div className="text-gray-300">Deposit Request</div>
                 </Link>
               </li>
               <li
                 className={`${
-                  pathname === "/dashboard/upload-logs" ? "active" : ""
-                }`}
+                  pathname === "/user" ? "active" : ""
+                } text-white mt-3`}
               >
-                <Link href="/dashboard/orders" style={{ display: "flex" }}>
-                  <ProductionQuantityLimitsIcon sx={{ marginRight: "10px" }} />{" "}
-                  <div>Orders</div>
+                <Link
+                  href="/dashboard/withdrawal-request"
+                  style={{ display: "flex" }}
+                >
+                  <Image
+                    src="/img/check.png"
+                    alt="deposit"
+                    width={20}
+                    height={20}
+                    className="mr-2"
+                  />
+                  <div className="text-gray-300">Withdrawal Request</div>
                 </Link>
               </li>
               <li
                 className={`${
-                  pathname === "/dashboard/upload-logs" ? "active" : ""
-                }`}
+                  pathname === "/user" ? "active" : ""
+                } text-white mt-3`}
+              >
+                <Link
+                  href="/dashboard/manage-traders"
+                  style={{ display: "flex" }}
+                >
+                  <Image
+                    src="/img/check.png"
+                    alt="deposit"
+                    width={20}
+                    height={20}
+                    className="mr-2"
+                  />
+                  <div className="text-gray-300">Manage Traders</div>
+                </Link>
+              </li>
+              <li
+                className={`${
+                  pathname === "/user" ? "active" : ""
+                } text-white mt-3`}
               >
                 <Link href="/dashboard/users" style={{ display: "flex" }}>
-                  <PersonIcon sx={{ marginRight: "10px" }} /> <div>users</div>
+                  <Image
+                    src="/img/dollar-symbol.png"
+                    alt="deposit"
+                    width={20}
+                    height={20}
+                    className="mr-2"
+                  />
+                  <div className="text-gray-300">Users</div>
+                </Link>
+              </li>
+              <li
+                className={`${
+                  pathname === "/user" ? "active" : ""
+                } text-white mt-3`}
+              >
+                <Link href="/dashboard/kyc" style={{ display: "flex" }}>
+                  <Image
+                    src="/img/dollar-symbol.png"
+                    alt="deposit"
+                    width={20}
+                    height={20}
+                    className="mr-2"
+                  />
+                  <div className="text-gray-300">Kycs</div>
+                </Link>
+              </li>
+              <li
+                className={`${
+                  pathname === "/user" ? "active" : ""
+                } text-white mt-3`}
+              >
+                <Link
+                  href="/dashboard/payment-method"
+                  style={{ display: "flex" }}
+                >
+                  <Image
+                    src="/img/pie-chart.png"
+                    alt="deposit"
+                    width={20}
+                    height={20}
+                    className="mr-2"
+                  />
+                  <div className="text-gray-300">Payment Methods</div>
                 </Link>
               </li>
             </ul>
@@ -294,17 +385,6 @@ const Sidebar = () => {
                 <i className="flaticon-male"></i> Restaurant Profile
               </Link>
             </li> */}
-            {session?.user?.role === "admin" && root === "dashboard" && (
-              <li
-                className={
-                  pathname === "/dashboard/payment-method" ? "active" : ""
-                }
-              >
-                <Link href="/dashboard/payment-method">
-                  <i className="flaticon-list-1"></i> Payment Method
-                </Link>
-              </li>
-            )}
 
             <li onClick={signOut}>
               <Link href="#" style={{ display: "flex" }} className="mt-5">

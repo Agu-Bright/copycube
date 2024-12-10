@@ -1,6 +1,6 @@
 import mongoose from "mongoose";
 
-const taskModel = new mongoose.Schema({
+const traderModel = new mongoose.Schema({
   name: {
     type: String,
   },
@@ -27,6 +27,6 @@ const taskModel = new mongoose.Schema({
     default: Date.now,
   },
 });
-const Task = mongoose.models.Task || mongoose.model("Task", taskModel);
+const Trader = mongoose.models.Trader || mongoose.model("Trader", traderModel);
 
-export default Task;
+export default Trader;

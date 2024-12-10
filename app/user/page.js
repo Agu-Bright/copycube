@@ -26,19 +26,30 @@ import MyOrder from "@components/MyOrder";
 import Buy from "@components/Buy";
 import MarketNews from "@components/MarketNews";
 
-const Topic = ({ title, src }) => {
-  return (
-    <div>
-      <Image src={src} alt="img" width={30} height={30} />
-      <span style={{ marginLeft: "10px" }}>{title}</span>
-    </div>
-  );
-};
-
 export default function Home() {
   const { data: session, status } = useSession();
   const router = useRouter();
+  const { formatMoney, myWallet } = useContext(RestaurantContext);
 
+  const [btc, setBtc] = useState("");
+
+  useEffect(() => {
+    myWallet &&
+      (async () => {
+        try {
+          const response = await axios.get(
+            "https://api.coindesk.com/v1/bpi/currentprice/BTC.json"
+          );
+          const btcPriceInUSD = response.data.bpi.USD.rate_float;
+          // Calculate the equivalent BTC amount
+          const btcEquivalent = Number(myWallet?.balance) / btcPriceInUSD;
+          setBtc(btcEquivalent.toFixed(8));
+        } catch (error) {
+          console.error("Error fetching BTC price:", error.message);
+        }
+      })();
+  }, [myWallet]);
+  
   if (status === "loading") {
     return (
       <div
@@ -142,7 +153,7 @@ export default function Home() {
                       Total Balance
                     </Typography>
                     <Typography className="text-white text-4xl font-semibold mt-3">
-                      $0.00{" "}
+                      {formatMoney(myWallet?.balance)}
                       <span
                         style={{ background: "#FF9F38" }}
                         className=" ml-2 rounded-3xl px-4 py-2 "
@@ -154,7 +165,7 @@ export default function Home() {
                       sx={{ color: "#808191" }}
                       className="text-4xl font-semibold mt-3"
                     >
-                      0.00000000 BTC
+                      {btc} BTC
                     </Typography>
                   </Box>
                   <Box
