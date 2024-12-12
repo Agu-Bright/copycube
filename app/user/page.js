@@ -360,7 +360,7 @@ export default function Home() {
                       background: "#21242D",
                     }}
                   >
-                    {/* <Box>
+                    <Box>
                       <Typography
                         className="rounded-xl"
                         style={{
@@ -371,8 +371,8 @@ export default function Home() {
                       >
                         Trending{" "}
                       </Typography>
-                       <TradingViewWidget /> 
-                    </Box> */}
+                      <TradingViewWidget />
+                    </Box>
                   </Box>
                 </Box>
               </Stack>

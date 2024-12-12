@@ -155,7 +155,7 @@ function SideBarDrawer({ open, close }) {
               >
                 <Link href="/user/live-trading" style={{ display: "flex" }}>
                   <Image
-                    src="/img/dollar-symbol.png"
+                    src="/img/stream.png"
                     alt="deposit"
                     width={20}
                     height={20}
@@ -171,7 +171,7 @@ function SideBarDrawer({ open, close }) {
               >
                 <Link href="/user/transactions" style={{ display: "flex" }}>
                   <Image
-                    src="/img/pie-chart.png"
+                    src="/img/transaction.png"
                     alt="deposit"
                     width={20}
                     height={20}
@@ -187,7 +187,7 @@ function SideBarDrawer({ open, close }) {
               >
                 <Link href="/user/ranking" style={{ display: "flex" }}>
                   <Image
-                    src="/img/bar-chart.png"
+                    src="/img/quality.png"
                     alt="deposit"
                     width={20}
                     height={20}
@@ -204,7 +204,7 @@ function SideBarDrawer({ open, close }) {
               >
                 <Link href="/user/kyc" style={{ display: "flex" }}>
                   <Image
-                    src="/img/bar-chart.png"
+                    src="/img/search-user.png"
                     alt="deposit"
                     width={20}
                     height={20}
@@ -236,7 +236,7 @@ function SideBarDrawer({ open, close }) {
               >
                 <Link href="/user/login-history" style={{ display: "flex" }}>
                   <Image
-                    src="/img/hand-shake.png"
+                    src="/img/history.png"
                     alt="deposit"
                     width={20}
                     height={20}
@@ -252,7 +252,7 @@ function SideBarDrawer({ open, close }) {
               >
                 <Link href="/user/settings" style={{ display: "flex" }}>
                   <Image
-                    src="/img/hand-shake.png"
+                    src="/img/settings.png"
                     alt="deposit"
                     width={20}
                     height={20}
