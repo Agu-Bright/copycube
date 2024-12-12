@@ -9,7 +9,6 @@ import "swiper/css";
 import "swiper/css/pagination";
 import "swiper/css/navigation";
 
-
 import React from "react";
 import Image from "next/image";
 import { RestaurantContext } from "@context/RestaurantContext";
@@ -99,7 +98,7 @@ export default function Home() {
                           background: "black",
                         }}
                       >
-                        Trading Pairs
+                        Trading Pair
                       </Typography>
                       <Box sx={{ height: "52vh" }}>
                         <TradingPairWidget />

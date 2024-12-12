@@ -44,6 +44,7 @@ const TraderCard = ({ trader, setActive }) => {
         <h5 className="mb-1 text-start text-gray-50  w-[100%] pl-2 text-sm font-medium dark:text-white">
           Confidence: {trader?.confidence}%
         </h5>
+
         <span className="text-sm text-gray-50 dark:text-gray-400">
           <IconButton>
             <LocationOnIcon sx={{ color: "white" }} />
