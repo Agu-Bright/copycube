@@ -24,11 +24,21 @@ const Hero = () => (
                   "linear-gradient(179.1deg, #FFFFFF 0.77%, rgba(255, 255, 255, 0) 182.09%)",
               }}
             >
-              Empowering Financial Freedom Through Smart Forex Investments
+              <span
+                style={{
+                  backgroundImage:
+                    "linear-gradient(to right, #00C6FF, #0072FF)",
+                  WebkitBackgroundClip: "text",
+                  color: "transparent",
+                }}
+              >
+                Copy Trading
+              </span>{" "}
+              is Even Better Now{" "}
             </h1>
             <p className="max-w-xl mx-auto text-gray-300">
-              Turn your capital into consistent returns with expert-driven forex
-              strategies and transparent investment solutions
+              Providing you the opportunity to copy experts in more than 50
+              assets for continuous income
             </p>
             <div className="flex justify-center font-medium text-sm">
               <NavLink
@@ -36,7 +46,7 @@ const Hero = () => (
                 style={{ background: "#00CBCB" }}
                 className="flex items-center text-whitehover:bg-sky-400 active:bg-sky-400 "
               >
-                Get Started
+                Start Trading{" "}
                 <svg
                   xmlns="http://www.w3.org/2000/svg"
                   viewBox="0 0 20 20"
