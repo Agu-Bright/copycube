@@ -98,7 +98,7 @@ export default function Home() {
                           background: "black",
                         }}
                       >
-                        Trading Pair
+                        Trading Pairs
                       </Typography>
                       <Box sx={{ height: "52vh" }}>
                         <TradingPairWidget />
