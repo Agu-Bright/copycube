@@ -3,8 +3,10 @@ import Image from "next/image";
 import NavLink from "../NavLink";
 import HeroImg from "@/public/images/hero.svg";
 import LayoutEffect from "@/components/LayoutEffect";
-import { Background } from "@node_modules/@cloudinary/transformation-builder-sdk/qualifiers";
-
+import Avatar from "@mui/material/Avatar";
+import AvatarGroup from "@mui/material/AvatarGroup";
+import Stack from "@mui/material/Stack";
+import { Box } from "@mui/material";
 const Hero = () => (
   <section>
     <div className="custom-screen py-10">
@@ -40,6 +42,19 @@ const Hero = () => (
               Providing you the opportunity to copy experts in more than 50
               assets for continuous income
             </p>
+            <Box
+              sx={{
+                display: "flex",
+                alignItems: "center",
+                justifyContent: "center",
+              }}
+            >
+              <AvatarGroup spacing="medium">
+                <Avatar alt="Remy Sharp" src="/img/facebook.png" />
+                <Avatar alt="Travis Howard" src="/img/tesla.png" />
+                <Avatar alt="Cindy Baker" src="/img/apple.png" />
+              </AvatarGroup>
+            </Box>
             <div className="flex justify-center font-medium text-sm">
               <NavLink
                 href="/user/login"
