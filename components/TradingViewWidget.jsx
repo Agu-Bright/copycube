@@ -3,44 +3,45 @@ import "./style.css";
 
 const TradingViewWidget = () => {
   useEffect(() => {
-    const scriptId = "tradingview-widget-script";
+    const container = document.getElementById("tradingview-widget-container");
 
-    if (!document.getElementById(scriptId)) {
-      const script = document.createElement("script");
-      script.id = scriptId;
-      script.src = "https://s3.tradingview.com/tv.js";
-      script.async = true;
-      document.head.appendChild(script);
+    // Clean up any existing widgets before adding a new one
+    container.innerHTML = "";
 
-      script.onload = () => {
-        if (window.TradingView) {
-          new window.TradingView.widget({
-            container_id: "tradingview-widget-container",
-            width: "100%",
-            height: "100%",
-            symbol: "NASDAQ:AAPL", // Example symbol
-            interval: "D",
-            theme: "dark", // Set theme to dark
-            style: "1", // Candlestick style
-            locale: "en",
-            toolbar_bg: "rgba(0, 0, 0, 0)", // Transparent toolbar
-            enable_publishing: false,
-            hide_top_toolbar: true,
-            hide_side_toolbar: true,
-            allow_symbol_change: true,
-            withdateranges: false,
-            backgroundColor: "rgba(0, 0, 0, 0)", // Transparent background
-          });
-        }
-      };
-    }
+    const script = document.createElement("script");
+    script.src =
+      "https://s3.tradingview.com/external-embedding/embed-widget-hotlists.js";
+    script.async = true;
+
+    // Correctly assign configuration using textContent instead of innerHTML
+    script.textContent = JSON.stringify({
+      colorTheme: "dark", // This ensures the dark theme is used
+      dateRange: "12M",
+      exchange: "US",
+      showChart: true,
+      locale: "en",
+      largeChartUrl: "",
+      isTransparent: true,
+      showSymbolLogo: false,
+      showFloatingTooltip: false,
+      width: "100%",
+      height: "100%",
+      plotLineColorGrowing: "rgba(41, 98, 255, 1)",
+      plotLineColorFalling: "rgba(41, 98, 255, 1)",
+      gridLineColor: "rgba(240, 243, 250, 0)",
+      scaleFontColor: "rgba(209, 212, 220, 1)",
+      belowLineFillColorGrowing: "rgba(41, 98, 255, 0.12)",
+      belowLineFillColorFalling: "rgba(41, 98, 255, 0.12)",
+      belowLineFillColorGrowingBottom: "rgba(41, 98, 255, 0)",
+      belowLineFillColorFallingBottom: "rgba(41, 98, 255, 0)",
+      symbolActiveColor: "rgba(41, 98, 255, 0.12)",
+    });
+
+    container.appendChild(script);
 
     return () => {
-      const widgetContainer = document.getElementById(
-        "tradingview-widget-container"
-      );
-      if (widgetContainer) {
-        widgetContainer.innerHTML = "";
+      if (container.contains(script)) {
+        container.removeChild(script);
       }
     };
   }, []);
@@ -50,7 +51,21 @@ const TradingViewWidget = () => {
       id="tradingview-widget-container"
       className="tradingview-widget-container"
       style={{ width: "100%", height: "100%" }}
-    ></div>
+    >
+      <div  
+        className="tradingview-widget-container__widget"
+        style={{ width: "100%", height: "100%" }}
+      ></div>
+      <div className="tradingview-widget-copyright">
+        <a
+          href="https://www.tradingview.com/"
+          rel="noopener nofollow"
+          target="_blank"
+        >
+          <span className="blue-text">Track all markets on TradingView</span>
+        </a>
+      </div>
+    </div>
   );
 };
 
