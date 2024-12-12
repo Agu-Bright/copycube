@@ -148,9 +148,14 @@ export default function Home() {
                         <Typography className="text-white">
                           You currently have not uploaded any trader
                         </Typography>
-                        <Button className="mt-8" onClick={() => setOpen(true)}>
-                          Create Trader
-                        </Button>
+                        {session?.user?.role === "admin" && (
+                          <Button
+                            className="mt-8"
+                            onClick={() => router.push("/dashboard/create-trader")}
+                          >
+                            Create Trader
+                          </Button>
+                        )}
                       </Box>
                     </Box>
                   )}
