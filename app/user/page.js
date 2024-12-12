@@ -49,7 +49,7 @@ export default function Home() {
         }
       })();
   }, [myWallet]);
-  
+
   if (status === "loading") {
     return (
       <div
@@ -360,7 +360,7 @@ export default function Home() {
                       background: "#21242D",
                     }}
                   >
-                    <Box>
+                    {/* <Box>
                       <Typography
                         className="rounded-xl"
                         style={{
@@ -372,7 +372,7 @@ export default function Home() {
                         Trending{" "}
                       </Typography>
                        <TradingViewWidget /> 
-                    </Box>
+                    </Box> */}
                   </Box>
                 </Box>
               </Stack>
