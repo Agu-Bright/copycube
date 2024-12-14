@@ -90,7 +90,12 @@ export default function Home() {
                 borderRadius: "10px",
               }}
             >
-              <Typography sx={{ color: "#E8FFFF", fontSize: "1.2em" }}>
+              <Typography
+                sx={{
+                  color: "#E8FFFF",
+                  fontSize: { md: "1.2em", xs: "0.8em" },
+                }}
+              >
                 Empty Balance! Your balance is empty. Please make{" "}
                 <a href="/user/deposit" className="text-gray-700">
                   Deposit
@@ -114,7 +119,12 @@ export default function Home() {
                 marginTop: "15px",
               }}
             >
-              <Typography sx={{ color: "#E8FFFF", fontSize: "1.2em" }}>
+              <Typography
+                sx={{
+                  color: "#E8FFFF",
+                  fontSize: { md: "1.2em", xs: "0.8em" },
+                }}
+              >
                 KYC Verification Required! Please submit the required KYC
                 information to verify yourself. Otherwise, you couldn't make any
                 withdrawal requests to the system.{" "}
@@ -184,14 +194,19 @@ export default function Home() {
                           className="text-white flex row bg-blue-600 px-4 py-2 rounded-2xl hover:bg-transparent hover:border-blue-600 hover:border-2 mr-5"
                           style={{ alignItems: "center" }}
                         >
-                          <Box sx={{ width: "50px", height: "50px" }}>
+                          <Box
+                            sx={{
+                              width: { md: "50px", xs: "25px" },
+                              height: { md: "50px", xs: "25px" },
+                            }}
+                          >
                             <img
                               src="/img/exit.png"
                               alt="deposit"
                               style={{ width: "100", height: "100%" }}
                             />
                           </Box>
-                          <Typography className="text-white text-xl">
+                          <Typography className="text-white text-xs md:text-xl">
                             Withdraw
                           </Typography>
                         </button>
@@ -199,7 +214,12 @@ export default function Home() {
                           className="text-white flex row bg-transparent px-4 py-2 rounded-2xl hover:bg-transparent border-blue-600 border-2"
                           style={{ alignItems: "center" }}
                         >
-                          <Box sx={{ width: "50px", height: "50px" }}>
+                          <Box
+                            sx={{
+                              width: { md: "50px", xs: "25px" },
+                              height: { md: "50px", xs: "25px" },
+                            }}
+                          >
                             <img
                               src="/img/exit.png"
                               alt="deposit"
@@ -212,8 +232,8 @@ export default function Home() {
                         </button>
                       </Stack>
                       <Box
-                        style={{
-                          display: "flex",
+                        sx={{
+                          display: { md: "flex", xs: "none" },
                           flexDirection: "row",
                           alignItems: "center",
                           justifyContent: "flex-end",
@@ -239,7 +259,7 @@ export default function Home() {
                   sx={{
                     height: "auto",
                     padding: "10px",
-                    marginTop: { md: "", xs: "70px" },
+                    marginTop: { md: "0px", xs: "70px" },
                   }}
                   direction={{ md: "row", xs: "column" }}
                   justifyContent="space-between"
