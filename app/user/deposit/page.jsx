@@ -238,6 +238,7 @@ export default function Home() {
                       Deposit History
                     </Button>
                     <Button
+                      onClick={() => router.push("/user/wallets")}
                       endIcon={
                         <AccountBalanceWalletIcon sx={{ color: "white" }} />
                       }
