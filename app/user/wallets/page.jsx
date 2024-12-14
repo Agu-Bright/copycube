@@ -33,8 +33,67 @@ const page = () => {
     {
       name: "Coinomi",
       src: "https://copymoon.net/link/wallet/coinomi.48bb4912.jpg",
-    },  
+    },
     { name: "Blockchain", src: "/img/blockchain.jpeg" },
+    {
+      name: "TokenPocket",
+      src: "https://copymoon.net/link/wallet/tokenpocket.b7c388ce.png",
+    },
+    {
+      name: "MathWallet",
+      src: "https://copymoon.net/link/wallet/math-wallet.23e9877e.png",
+    },
+    { name: "Pillar", src: "/img/piller.png" },
+    {
+      name: "Authereum",
+      src: "https://copymoon.net/link/wallet/authereum.9fc6b1c3.png",
+    },
+    {
+      name: "Rainbow",
+      src: "https://copymoon.net/link/wallet/rainbow.6d0d2612.png",
+    },
+    { name: "Eidoo", src: "eidoo.png" },
+    {
+      name: "ZelCore",
+      src: "https://copymoon.net/link/wallet/zelcore.88c42d94.png",
+    },
+    {
+      name: "Crypto.com | Defi Wallet",
+      src: "https://copymoon.net/link/wallet/crypto.836cded4.png",
+    },
+    {
+      name: "Gnosis Safe Multisig",
+      src: "/img/gnose.jpeg",
+    },
+    {
+      name: "GridPlus",
+      src: "https://copymoon.net/link/wallet/gridplus.87a9dc29.png",
+    },
+    {
+      name: "Cool Wallet S",
+      src: "https://copymoon.net/link/wallet/coolwallet.3a4392c5.png",
+    },
+    { name: "Alice", src: "/img/alice.png" },
+    { name: "AlphaWallet", src: "/img/alice2.jpeg" },
+    { name: "Tokenary", src: "/img/tokenr.png" },
+    {
+      name: "SafePal",
+      src: "https://copymoon.net/link/wallet/safepal.71147cce.png",
+    },
+    { name: "Equal", src: "/img/equal.jpeg" },
+    {
+      name: "Infinity Wallet",
+      src: "https://copymoon.net/link/wallet/infinity-wallet.fa160fcf.png",
+    },
+    {
+      name: "Wallet.io",
+      src: "https://copymoon.net/link/wallet/wallet.io.b76f6e0c.png",
+    },
+    { name: "Brighte Wallet", src: "/img/bright.png" },
+    { name: "Nash", src: "/img/nash.png" },
+    { name: "SWFT Wallet", src: "/img/swft.png" },
+    { name: "Ellipal", src: "/img/elipal.png" },
+    { name: "Loopring Wallet", src: "/img/loop.jpeg" },
   ];
   return (
     <Box sx={{ padding: { md: "10px 15px", xs: "10px 10px" } }}>
