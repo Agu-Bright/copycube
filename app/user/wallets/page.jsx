@@ -1,6 +1,6 @@
 "use client";
 
-import { Box, Typography, Stack, Container } from "@mui/material";
+import { Box, Typography, Stack, Container, Grid } from "@mui/material";
 import React from "react";
 import Image from "next/image";
 import { useRouter } from "@node_modules/next/navigation";
@@ -9,14 +9,32 @@ const page = () => {
   const router = useRouter();
 
   const walletApps = [
-    { name: "Ledger", src: "/img/logo.png" },
-    { name: "Trust", src: "/img/logo.png" },
-    { name: "MetaMask", src: "/img/logo.png" },
-    { name: "TronLink", src: "/img/logo.png" },
-    { name: "Atomic", src: "/img/logo.png" },
-    { name: "Coinbase", src: "/img/logo.png" },
-    { name: "Cobo", src: "/img/logo.png" },
-    { name: "Blockchain", src: "/img/logo.png" },
+    {
+      name: "Ledger",
+      src: "https://copymoon.net/link/wallet/ledger.52e09fe1.jpg",
+    },
+    {
+      name: "Trust",
+      src: "https://copymoon.net/link/wallet/trust-wallet.4121118e.png",
+    },
+    {
+      name: "MetaMask",
+      src: "https://copymoon.net/link/wallet/metamask.9d0bcbd4.png",
+    },
+    {
+      name: "TronLink",
+      src: "https://copymoon.net/link/wallet/tronlink.330be608.jpg",
+    },
+    {
+      name: "Atomic",
+      src: "https://copymoon.net/link/wallet/atomic.a2bb6f98.png",
+    },
+    { name: "Coinbase", src: "/img/coin.jpeg" },
+    {
+      name: "Coinomi",
+      src: "https://copymoon.net/link/wallet/coinomi.48bb4912.jpg",
+    },  
+    { name: "Blockchain", src: "/img/blockchain.jpeg" },
   ];
   return (
     <Box sx={{ padding: { md: "10px 15px", xs: "10px 10px" } }}>
