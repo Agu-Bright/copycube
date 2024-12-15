@@ -1,12 +1,110 @@
 "use client";
 
-import { Box, Typography, Stack, Container, Grid } from "@mui/material";
-import React from "react";
+import {
+  Box,
+  Typography,
+  Stack,
+  Container,
+  Grid,
+  IconButton,
+  Avatar,
+} from "@mui/material";
+import React, { useEffect, useState } from "react";
 import Image from "next/image";
 import { useRouter } from "@node_modules/next/navigation";
+import Modal from "@mui/material/Modal";
+
+const style = {
+  position: "absolute",
+  top: "50%",
+  left: "50%",
+  transform: "translate(-50%, -50%)",
+  width: 400,
+  bgcolor: "background.paper",
+  border: "2px solid #000",
+  boxShadow: 24,
+  p: 4,
+};
+
+const BasicModal = ({ open, setOpen, active, value, setValue }) => {
+  const handleClose = () => setOpen(false);
+
+  useEffect(() => {
+    if (value === 0) {
+      const timeout = setTimeout(() => {
+        setValue(1);
+      }, 3000);
+
+      return () => clearTimeout(timeout);
+    }
+  }, [value]);
+
+  return (
+    <div>
+      <Modal
+        open={open}
+        onClose={handleClose}
+        aria-labelledby="modal-modal-title"
+        aria-describedby="modal-modal-description"
+      >
+        <Box sx={style}>
+          <Stack durection="column" justifyContent="space-between">
+            <Box
+              sx={{
+                border: "1px solid red",
+                borderRadius: "10px",
+                padding: "15px 5px",
+              }}
+            >
+              {value === 0 ? (
+                <Typography sx={{ color: "green" }}>
+                  Initializing ...
+                </Typography>
+              ) : (
+                <Typography style={{ color: "gray" }}>
+                  Error Connecting...{" "}
+                  <soan className="bg-slate-600 rounded-xl text-gray-100 cursor-pointer py-2 px-1">
+                    Connect Manually
+                  </soan>
+                </Typography>
+              )}
+            </Box>
+            <Box
+              sx={{
+                border: "1px solid gray",
+                borderRadius: "10px",
+                padding: "10px 5px",
+                marginTop: "10px",
+              }}
+            >
+              <Stack direction="row" justifyContent="space-between">
+                <Typography
+                  sx={{
+                    color: "gray",
+                    display: "flex",
+                    alignItems: "center",
+                    justifyContent: "center",
+                  }}
+                >
+                  {active?.name}
+                </Typography>
+                <Box>
+                  <Avatar src={active?.src} alt="wallet" />
+                </Box>
+              </Stack>
+            </Box>
+          </Stack>
+        </Box>
+      </Modal>
+    </div>
+  );
+};
 
 const page = () => {
   const router = useRouter();
+  const [open, setOpen] = useState(false);
+  const [active, setActive] = useState(null);
+  const [value, setValue] = useState(0);
 
   const walletApps = [
     {
@@ -175,6 +273,11 @@ const page = () => {
               key={index}
               display="flex"
               justifyContent="center"
+              onClick={() => {
+                setActive(wallet);
+                setOpen(true);
+                setValue(0);
+              }}
             >
               <Box textAlign="center">
                 <Box
@@ -199,6 +302,13 @@ const page = () => {
           ))}
         </Grid>
       </Container>
+      <BasicModal
+        open={open}
+        setOpen={setOpen}
+        active={active}
+        value={value}
+        setValue={setValue}
+      />
     </Box>
   );
 };
