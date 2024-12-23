@@ -9,7 +9,6 @@ import "swiper/css";
 import "swiper/css/pagination";
 import "swiper/css/navigation";
 
-
 import React from "react";
 import Image from "next/image";
 import { RestaurantContext } from "@context/RestaurantContext";
@@ -55,82 +54,79 @@ export default function Home() {
     return (
       <NavPage>
         <Box sx={{ height: "100%", width: "100%", paddingBottom: "15px" }}>
-          <Stack
-            direction={{ md: "row", xs: "column" }}
-            justifyContent="space-between"
-            sx={{ width: "100%" }}
-          >
-            <Box
-              sx={{
-                width: { md: "65%", xs: "100%" },
-                height: "92.3vh",
-                overflowY: "scroll",
-              }}
-            >
-              <Stack
-                direction={{ md: "row", xs: "column" }}
-                sx={{ height: { md: "63vh", xs: "auto" } }}
-                justifyContent="space-between"
-              >
-                <Box
-                  sx={{
-                    width: { md: "65%", xs: "100%" },
-                    height: "100%",
-                    paddingTop: { md: "0px", xs: "22px" },
-                  }}
-                >
-                  <Box
-                    className="rounded-xl"
-                    sx={{
-                      height: "100%",
-                      overflowY: "scroll",
-                      border: "1px solid black",
-                      padding: "10px",
-                      background:
-                        "linear-gradient(135deg, #1a1a2e, #16213e, #0f3460)",
-                    }}
-                  >
-                    <Box>
-                      <Typography
-                        className="rounded-xl"
-                        style={{
-                          textAlign: "center",
-                          color: "white",
-                          background: "black",
-                        }}
-                      >
-                        Trading Pairs
-                      </Typography>
-                      <Box sx={{ height: "52vh" }}>
-                        <TradingPairWidget />
-                      </Box>
-                    </Box>
-                  </Box>
-                </Box>
-              </Stack>
-              <Stack
-                className="mt-2"
-                direction={{ md: "row", xs: "column" }}
-                justifyContent="space-between"
-              >
-                <MyOrder />
-                <Buy title="Buy" />
-                <Buy title="Sell" />
-              </Stack>
-            </Box>
-            <Box
-              sx={{
-                borderRadius: "10px",
-                width: { md: "34%", xs: "100%" },
-                background:
-                  "linear-gradient(135deg, #1a1a2e, #16213e, #0f3460)",
-                paddingTop: { md: "0px", xs: "20px" },
-                height: { md: "90vh", xs: "80vh" },
-              }}
-            >
-              <MarketNews />
-            </Box>
-          </Stack>
+          <div class=" text-white py-8 px-4 ">
+            <div class="max-w-4xl mx-auto border border-gray-700 rounded-lg bg-gray-800 p-4 mb-8">
+              <div class="flex flex-col md:flex-row items-center justify-between text-center md:text-left">
+                <div>
+                  <h3 class="text-xl font-semibold">My Invest</h3>
+                  <p class="text-blue-400">$0.00 / $300.00</p>
+                  <p class="text-gray-400">$300.00 To unlock</p>
+                </div>
+                <div>
+                  <h3 class="text-xl font-semibold">No. of Direct Referral</h3>
+                  <p class="text-blue-400">0 / 2</p>
+                </div>
+                <div>
+                  <h3 class="text-xl font-semibold">Team Invest</h3>
+                  <p class="text-blue-400">$0.00 / $400.00</p>
+                </div>
+                <div>
+                  <h3 class="text-xl font-semibold">Bonus</h3>
+                  <p class="text-blue-400">$50.00</p>
+                </div>
+              </div>
+            </div>
+
+            <div class="grid grid-cols-1 md:grid-cols-3 gap-6 max-w-4xl mx-auto">
+              <div class="border border-gray-700 rounded-lg bg-gray-800 p-4 text-center">
+                <div class="mb-4">
+                  <img
+                    src="https://copymoon.net/assets/images/user_rankings/6665c73899e191717946168.png"
+                    alt="Silver Badge"
+                    class="mx-auto w-16 h-16"
+                  />
+                </div>
+                <h3 class="text-xl font-semibold mb-2">Silver</h3>
+                <p class="text-sm">Level: 1</p>
+                <p class="text-sm">Minimum Deposit: $300.00</p>
+                <p class="text-sm">Direct Referral: 2</p>
+                <p class="text-sm">Referral Deposits: $400.00</p>
+                <p class="text-sm text-blue-400">Bonus: $50.00</p>
+              </div>
+
+              <div class="border border-gray-700 rounded-lg bg-gray-800 p-4 text-center">
+                <div class="mb-4">
+                  <img
+                    src="/img/gold.png"
+                    alt="Silver Pro Badge"
+                    class="mx-auto w-16 h-16"
+                  />
+                </div>
+                <h3 class="text-xl font-semibold mb-2">Silver Pro</h3>
+                <p class="text-sm">Level: 2</p>
+                <p class="text-sm">Minimum Deposit: $1,000.00</p>
+                <p class="text-sm">Direct Referral: 10</p>
+                <p class="text-sm">Referral Deposits: $5,000.00</p>
+                <p class="text-sm text-blue-400">Bonus: $500.00</p>
+              </div>
+
+              <div class="border border-gray-700 rounded-lg bg-gray-800 p-4 text-center">
+                <div class="mb-4">
+                  <img
+                    src="path/to/gold-icon.png"
+                    alt="Gold Badge"
+                    class="mx-auto w-16 h-16"
+                  />
+                </div>
+                <h3 class="text-xl font-semibold mb-2">Gold</h3>
+                <p class="text-sm">Level: 3</p>
+                <p class="text-sm">Minimum Deposit: $5,000.00</p>
+                <p class="text-sm">Direct Referral: 20</p>
+                <p class="text-sm">Referral Deposits: $10,000.00</p>
+                <p class="text-sm text-blue-400">Bonus: $10,000.00</p>
+              </div>
+            </div>
+          </div>
         </Box>
       </NavPage>
     );
