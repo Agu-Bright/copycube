@@ -99,7 +99,13 @@ export default function Home() {
                 Expert Traders{" "}
               </Typography>
             </Box>
-            <Box className="w-[100%] mt-4 ">
+            <Box
+              className="w-[100%] mt-4"
+              sx={{
+                height: "75vh",
+                overflowY: "scroll",
+              }}
+            >
               <Typography className="mb-8" sx={{ marginBottom: "15px" }}>
                 The Grin blockchain has presented significant technical
                 challenges
