@@ -3,7 +3,10 @@ import OrderBook from "./orderBook";
 
 const TradingDashboard = () => {
   return (
-    <div className="bg-gray-900 text-white min-h-screen p-6 mt-4">
+    <div
+      style={{ background: "#242731" }}
+      className=" text-white min-h-screen p-6 mt-4"
+    >
       {/* Tabs */}
       <div className="flex flex-wrap justify-between items-center mb-6">
         {/* Buttons Section */}
@@ -31,7 +34,7 @@ const TradingDashboard = () => {
       {/* Notice */}
       <div
         style={{ background: "#213126" }}
-        className=" text-gray-800 rounded-lg px-4 py-6 mb-6 text-center shadow-md"
+        className=" rounded-lg px-4 py-6 mb-6 text-center shadow-md"
       >
         <h2 className="font-bold text-lg">Notice! Notice!! Notice!!!</h2>
         <p className="mt-2">
@@ -44,7 +47,10 @@ const TradingDashboard = () => {
       {/* Main Content */}
       <div className="grid grid-cols-1 lg:grid-cols-3 gap-6">
         {/* Chart Section */}
-        <div className="lg:col-span-2 bg-gray-800 rounded-lg p-4 shadow-md">
+        <div
+          style={{ background: "#242731" }}
+          className="lg:col-span-2  rounded-lg p-4 shadow-md"
+        >
           <div className="bg-black h-[400px] flex items-center justify-center rounded-md">
             {/* <span className="text-gray-500 text-lg">Chart Placeholder</span> */}
             <img

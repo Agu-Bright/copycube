@@ -21,7 +21,10 @@ const OrderBook = () => {
   ];
 
   return (
-    <div className="bg-gray-800 text-white rounded-lg p-4 shadow-md">
+    <div
+      style={{ background: "#242731" }}
+      className=" text-white rounded-lg p-4 shadow-md"
+    >
       <div className="flex justify-between items-center mb-4">
         <h3 className="text-lg font-semibold">Order Book</h3>
         <div className="flex space-x-2">

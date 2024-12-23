@@ -101,8 +101,8 @@ export default function Home() {
             </Box> */}
 
             <div
-              style={{ border: "0.1px solid gray" }}
-              class="bg-gray-800 text-white w-[100%] p-6 rounded-lg mb-8 mt-10"
+              style={{ background: "#242731", border: "0.1px solid gray" }}
+              class=" text-white w-[100%] p-6 rounded-lg mb-8 mt-10"
             >
               <div class="grid grid-cols-3 gap-4">
                 <div class="flex flex-col">
@@ -115,7 +115,7 @@ export default function Home() {
                 </div>
                 <div class="flex justify-end items-center">
                   <a
-                    href="#"
+                    href="/user/copy-traders"
                     class="text-purple-500 hover:underline text-sm font-semibold"
                   >
                     CopyTrade Now →
@@ -124,7 +124,10 @@ export default function Home() {
               </div>
             </div>
 
-            <div class="bg-gray-800 text-white w-[100%] p-6 rounded-lg shadow-md">
+            <div
+              style={{ background: "#242731" }}
+              class=" text-white w-[100%] p-6 rounded-lg shadow-md"
+            >
               <h2 class="text-lg font-semibold mb-4">History</h2>
               {/* <!-- History Table --> */}
               <div class="grid grid-cols-5 gap-2 text-center mt-4">

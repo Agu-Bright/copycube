@@ -19,7 +19,10 @@ const MarketTradesTable = () => {
   ];
 
   return (
-    <div className="bg-gray-900 p-4 sm:p-6 rounded-lg shadow-lg text-white mt-8">
+    <div
+      style={{ background: "#242731" }}
+      className=" p-4 sm:p-6 rounded-lg shadow-lg text-white mt-8"
+    >
       <div className="flex justify-between mb-4">
         <h2 className="text-lg sm:text-xl font-semibold">Market Trades</h2>
         <div className="flex flex-wrap space-x-2 sm:space-x-4">
