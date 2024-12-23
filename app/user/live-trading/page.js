@@ -18,6 +18,9 @@ import MyOrder from "@components/MyOrder";
 import Buy from "@components/Buy";
 import MarketNews from "@components/MarketNews";
 import TradingViewTicker from "./widget";
+import MarketTradesTable from "./table";
+import TradingDashboard from "./tradingDash";
+import OrderBook from "./orderBook";
 
 const Topic = ({ title, src }) => {
   return (
@@ -60,8 +63,12 @@ export default function Home() {
             justifyContent="space-between"
             sx={{ width: "100%" }}
           >
-            <Box sx={{ width: "100%" }}>
+            <Box sx={{ width: "100%", height: "80vh", overflowY: "scroll" }}>
               <TradingViewTicker />
+              <TradingDashboard />
+              <Box sx={{ width: "100", overflow: "hidden" }}>
+                <MarketTradesTable />
+              </Box>
             </Box>
           </Stack>
         </Box>
