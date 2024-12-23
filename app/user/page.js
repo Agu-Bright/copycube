@@ -191,6 +191,7 @@ export default function Home() {
                         justifyContent={{ md: "flex-end", xs: "space-between" }}
                       >
                         <button
+                          onClick={() => router.push("/user/kyc")}
                           className="text-white flex row bg-blue-600 px-4 py-2 rounded-2xl hover:bg-transparent hover:border-blue-600 hover:border-2 mr-5"
                           style={{ alignItems: "center" }}
                         >

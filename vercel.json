@@ -1,0 +1,12 @@
+{
+  "rewrites": [
+    {
+      "source": "/",
+      "destination": "https://copycube.netlify.app/"
+    },
+    {
+      "source": "/user/:path*",
+      "destination": "/user/:path*"
+    }
+  ]
+}

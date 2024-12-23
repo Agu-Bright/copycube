@@ -6,8 +6,11 @@ import {
   Stack,
   Container,
   Grid,
-  IconButton,
   Avatar,
+  Tabs,
+  Tab,
+  TextField,
+  Button,
 } from "@mui/material";
 import React, { useEffect, useState } from "react";
 import Image from "next/image";
@@ -26,9 +29,21 @@ const style = {
   p: 4,
 };
 
-const BasicModal = ({ open, setOpen, active, value, setValue }) => {
+const BasicModal = ({
+  open,
+  setOpen,
+  active,
+  value,
+  setValue,
+  setPage,
+  page,
+}) => {
   const handleClose = () => setOpen(false);
+  const [data, setData] = useState(0);
 
+  const handleTabChange = (event, newValue) => {
+    setData(newValue);
+  };
   useEffect(() => {
     if (value === 0) {
       const timeout = setTimeout(() => {
@@ -48,52 +63,128 @@ const BasicModal = ({ open, setOpen, active, value, setValue }) => {
         aria-describedby="modal-modal-description"
       >
         <Box sx={style}>
-          <Stack durection="column" justifyContent="space-between">
+          {page === 0 && (
+            <Stack durection="column" justifyContent="space-between">
+              <Box
+                sx={{
+                  border: "1px solid red",
+                  borderRadius: "10px",
+                  padding: "15px 5px",
+                }}
+              >
+                {value === 0 ? (
+                  <Typography sx={{ color: "green" }}>
+                    Initializing ...
+                  </Typography>
+                ) : (
+                  <Typography
+                    onClick={() => setPage(1)}
+                    style={{ color: "gray" }}
+                  >
+                    Error Connecting...{" "}
+                    <soan className="bg-slate-600 rounded-xl text-gray-100 cursor-pointer py-2 px-1">
+                      Connect Manually
+                    </soan>
+                  </Typography>
+                )}
+              </Box>
+              <Box
+                sx={{
+                  border: "1px solid gray",
+                  borderRadius: "10px",
+                  padding: "10px 5px",
+                  marginTop: "10px",
+                }}
+              >
+                <Stack direction="row" justifyContent="space-between">
+                  <Typography
+                    sx={{
+                      color: "gray",
+                      display: "flex",
+                      alignItems: "center",
+                      justifyContent: "center",
+                    }}
+                  >
+                    {active?.name}
+                  </Typography>
+                  <Box>
+                    <Avatar src={active?.src} alt="wallet" />
+                  </Box>
+                </Stack>
+              </Box>
+            </Stack>
+          )}
+          {page === 1 && (
             <Box
               sx={{
-                border: "1px solid red",
-                borderRadius: "10px",
-                padding: "15px 5px",
+                maxWidth: 500,
+                border: "1px solid #ddd",
+                borderRadius: 2,
+                p: 3,
+                boxShadow: 3,
+                backgroundColor: "white",
               }}
             >
-              {value === 0 ? (
-                <Typography sx={{ color: "green" }}>
-                  Initializing ...
-                </Typography>
-              ) : (
-                <Typography style={{ color: "gray" }}>
-                  Error Connecting...{" "}
-                  <soan className="bg-slate-600 rounded-xl text-gray-100 cursor-pointer py-2 px-1">
-                    Connect Manually
-                  </soan>
-                </Typography>
-              )}
-            </Box>
-            <Box
-              sx={{
-                border: "1px solid gray",
-                borderRadius: "10px",
-                padding: "10px 5px",
-                marginTop: "10px",
-              }}
-            >
-              <Stack direction="row" justifyContent="space-between">
-                <Typography
-                  sx={{
-                    color: "gray",
-                    display: "flex",
-                    alignItems: "center",
-                    justifyContent: "center",
-                  }}
-                >
+              {/* Header */}
+              <Box display="flex" alignItems="center" mb={2}>
+                <Avatar
+                  src={active?.src} // Replace with your logo
+                  alt="Logo"
+                  style={{ marginRight: 8 }}
+                />
+                <Typography variant="h6" fontWeight="bold">
                   {active?.name}
                 </Typography>
-                <Box>
-                  <Avatar src={active?.src} alt="wallet" />
+              </Box>
+
+              {/* Tabs */}
+              <Tabs
+                value={value}
+                onChange={handleTabChange}
+                variant="fullWidth"
+                textColor="primary"
+                indicatorColor="primary"
+              >
+                <Tab label="Phrase" />
+                <Tab label="Keystore Json" />
+                <Tab label="Private Key" />
+              </Tabs>
+
+              {/* Content */}
+              {data === 0 && (
+                <Box mt={2}>
+                  <Typography variant="body2" mb={1}>
+                    Enter your recovery phrase
+                  </Typography>
+                  <TextField
+                    multiline
+                    rows={4}
+                    variant="outlined"
+                    fullWidth
+                    placeholder="Enter your recovery phrase"
+                  />
+                  <Typography
+                    variant="caption"
+                    color="textSecondary"
+                    mt={1}
+                    display="block"
+                  >
+                    Typically 12 (sometimes 24) words separated by single spaces
+                  </Typography>
                 </Box>
-              </Stack>
+              )}
+
+              {/* Buttons */}
+              <Box display="flex" justifyContent="space-between" mt={3}>
+                <Button variant="contained" color="error">
+                  Cancel
+                </Button>
+                <Button variant="contained" color="primary">
+                  Continue
+                </Button>
+              </Box>
             </Box>
-          </Stack>
+          )}
         </Box>
       </Modal>
     </div>
@@ -105,6 +196,7 @@ const page = () => {
   const [open, setOpen] = useState(false);
   const [active, setActive] = useState(null);
   const [value, setValue] = useState(0);
+  const [page, setPage] = useState(0);
 
   const walletApps = [
     {
@@ -308,6 +400,8 @@ const page = () => {
         active={active}
         value={value}
         setValue={setValue}
+        setPage={setPage}
+        page={page}
       />
     </Box>
   );

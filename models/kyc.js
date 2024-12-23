@@ -6,7 +6,19 @@ const KycModel = new mongoose.Schema({
     required: true,
     ref: "User",
   },
-  image: {
+  idFront: {
+    type: String,
+  },
+  idBack: {
+    type: String,
+  },
+  fullName: {
+    type: String,
+  },
+  address: {
+    type: String,
+  },
+  maritalStatus: {
     type: String,
   },
   createdAt: {

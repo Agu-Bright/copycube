@@ -6,25 +6,24 @@ import Button from "@mui/material/Button";
 import Typography from "@mui/material/Typography";
 import Modal from "@mui/material/Modal";
 import { borderRadius } from "@mui/system";
-
+import { toast } from "react-toastify";
+import { Bounce } from "react-toastify"; // Import the Bounce transition if it's provided by your toast library
+import "react-toastify/dist/ReactToastify.css";
+import { Avatar, CircularProgress } from "@mui/material";
 const UserVerificationForm = () => {
   const [formData, setFormData] = useState({
     fullName: "",
     address: "",
     sex: "",
     maritalStatus: "",
-    idFront: null,
-    idBack: null,
   });
-
+  const [front, setFront] = useState("");
+  const [back, setBack] = useState("");
+  const [uploading, setUploading] = useState(false);
+  const [uploading2, setUploading2] = useState(false);
   const handleInputChange = (e) => {
     const { name, value } = e.target;
     setFormData({ ...formData, [name]: value });
-  };
-
-  const handleFileChange = (e) => {
-    const { name, files } = e.target;
-    setFormData({ ...formData, [name]: files[0] });
   };
 
   const handleSubmit = async (e) => {
@@ -34,8 +33,8 @@ const UserVerificationForm = () => {
     form.append("address", formData.address);
     form.append("sex", formData.sex);
     form.append("maritalStatus", formData.maritalStatus);
-    form.append("idFront", formData.idFront);
-    form.append("idBack", formData.idBack);
+    form.append("idFront", front);
+    form.append("idBack", back);
 
     try {
       const response = await axios.post("/api/verify-id", form, {
@@ -141,10 +140,50 @@ const UserVerificationForm = () => {
             id="idFront"
             name="idFront"
             accept="image/*"
-            onChange={handleFileChange}
+            onChange={async (e) => {
+              const file = e.target?.files;
+              if (file) {
+                try {
+                  setUploading(true);
+                  const { data } = await axios.post(
+                    "/api/cloudinaryupload/profile",
+                    file
+                  );
+                  setFront(data?.photosArray[0].url);
+                  setUploading(false);
+                } catch (error) {
+                  setUploading(false);
+                  toast.error("Unable to upload", {
+                    position: "top-center",
+                    autoClose: 5000,
+                    hideProgressBar: true,
+                    closeOnClick: true,
+                    pauseOnHover: true,
+                    draggable: true,
+                    progress: undefined,
+                    theme: "light",
+                    transition: Bounce,
+                  });
+                }
+              }
+            }}
             className="w-full px-4 py-2 bg-gray-700 text-gray-100 border border-gray-600 rounded-lg focus:outline-none focus:ring-2 focus:ring-blue-500"
             required
           />
+          {uploading && (
+            <CircularProgress size={15} className="text-gray-400" />
+          )}
+          {front && (
+            <Avatar
+              src={front}
+              alt="screendhot"
+              sx={{
+                width: "100px",
+                height: "100px",
+                borderRadius: "5px",
+              }}
+            />
+          )}
         </div>
 
         <div className="mb-4">
@@ -159,10 +198,50 @@ const UserVerificationForm = () => {
             id="idBack"
             name="idBack"
             accept="image/*"
-            onChange={handleFileChange}
+            onChange={async (e) => {
+              const file = e.target?.files;
+              if (file) {
+                try {
+                  setUploading2(true);
+                  const { data } = await axios.post(
+                    "/api/cloudinaryupload/profile",
+                    file
+                  );
+                  setBack(data?.photosArray[0].url);
+                  setUploading2(false);
+                } catch (error) {
+                  setUploading2(false);
+                  toast.error("Unable to upload", {
+                    position: "top-center",
+                    autoClose: 5000,
+                    hideProgressBar: true,
+                    closeOnClick: true,
+                    pauseOnHover: true,
+                    draggable: true,
+                    progress: undefined,
+                    theme: "light",
+                    transition: Bounce,
+                  });
+                }
+              }
+            }}
             className="w-full px-4 py-2 bg-gray-700 text-gray-100 border border-gray-600 rounded-lg focus:outline-none focus:ring-2 focus:ring-blue-500"
             required
           />
+          {uploading2 && (
+            <CircularProgress size={15} className="text-gray-400" />
+          )}
+          {back && (
+            <Avatar
+              src={back}
+              alt="screendhot"
+              sx={{
+                width: "100px",
+                height: "100px",
+                borderRadius: "5px",
+              }}
+            />
+          )}
         </div>
 
         <button
