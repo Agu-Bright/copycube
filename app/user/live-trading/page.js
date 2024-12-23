@@ -9,7 +9,6 @@ import "swiper/css";
 import "swiper/css/pagination";
 import "swiper/css/navigation";
 
-
 import React from "react";
 import Image from "next/image";
 import { RestaurantContext } from "@context/RestaurantContext";
@@ -18,6 +17,7 @@ import TradingPairWidget from "@components/TradingPairWidget";
 import MyOrder from "@components/MyOrder";
 import Buy from "@components/Buy";
 import MarketNews from "@components/MarketNews";
+import TradingViewTicker from "./widget";
 
 const Topic = ({ title, src }) => {
   return (
@@ -60,75 +60,8 @@ export default function Home() {
             justifyContent="space-between"
             sx={{ width: "100%" }}
           >
-            <Box
-              sx={{
-                width: { md: "65%", xs: "100%" },
-                height: "92.3vh",
-                overflowY: "scroll",
-              }}
-            >
-              <Stack
-                direction={{ md: "row", xs: "column" }}
-                sx={{ height: { md: "63vh", xs: "auto" } }}
-                justifyContent="space-between"
-              >
-                <Box
-                  sx={{
-                    width: { md: "65%", xs: "100%" },
-                    height: "100%",
-                    paddingTop: { md: "0px", xs: "20px" },
-                  }}
-                >
-                  <Box
-                    className="rounded-xl"
-                    sx={{
-                      height: "100%",
-                      overflowY: "scroll",
-                      border: "1px solid black",
-                      padding: "10px",
-                      background:
-                        "linear-gradient(135deg, #1a1a2e, #16213e, #0f3460)",
-                    }}
-                  >
-                    <Box>
-                      <Typography
-                        className="rounded-xl"
-                        style={{
-                          textAlign: "center",
-                          color: "white",
-                          background: "black",
-                        }}
-                      >
-                        Trading Pairs
-                      </Typography>
-                      <Box sx={{ height: "52vh" }}>
-                        <TradingPairWidget />
-                      </Box>
-                    </Box>
-                  </Box>
-                </Box>
-              </Stack>
-              <Stack
-                className="mt-2"
-                direction={{ md: "row", xs: "column" }}
-                justifyContent="space-between"
-              >
-                <MyOrder />
-                <Buy title="Buy" />
-                <Buy title="Sell" />
-              </Stack>
-            </Box>
-            <Box
-              sx={{
-                borderRadius: "10px",
-                width: { md: "34%", xs: "100%" },
-                background:
-                  "linear-gradient(135deg, #1a1a2e, #16213e, #0f3460)",
-                paddingTop: { md: "0px", xs: "20px" },
-                height: { md: "90vh", xs: "80vh" },
-              }}
-            >
-              <MarketNews />
+            <Box sx={{ width: "100%" }}>
+              <TradingViewTicker />
             </Box>
           </Stack>
         </Box>
