@@ -55,7 +55,10 @@ export default function Home() {
       <NavPage>
         <Box sx={{ height: "100%", width: "100%", paddingBottom: "15px" }}>
           <div class=" text-white py-8 px-4 ">
-            <div class="max-w-4xl mx-auto border border-gray-700 rounded-lg bg-gray-800 p-4 mb-8">
+            <div
+              style={{ background: "#242731" }}
+              class="max-w-4xl mx-auto border border-gray-700 rounded-lg p-4 mb-8"
+            >
               <div class="flex flex-col md:flex-row items-center justify-between text-center md:text-left">
                 <div>
                   <h3 class="text-xl font-semibold">My Invest</h3>
@@ -78,7 +81,10 @@ export default function Home() {
             </div>
 
             <div class="grid grid-cols-1 md:grid-cols-3 gap-6 max-w-4xl mx-auto">
-              <div class="border border-gray-700 rounded-lg bg-gray-800 p-4 text-center">
+              <div
+                style={{ background: "#242731" }}
+                class="border border-gray-700 rounded-lg p-4 text-center"
+              >
                 <div class="mb-4">
                   <img
                     src="https://copymoon.net/assets/images/user_rankings/6665c73899e191717946168.png"
@@ -94,7 +100,10 @@ export default function Home() {
                 <p class="text-sm text-blue-400">Bonus: $50.00</p>
               </div>
 
-              <div class="border border-gray-700 rounded-lg bg-gray-800 p-4 text-center">
+              <div
+                style={{ background: "#242731" }}
+                class="border border-gray-700 rounded-lg p-4 text-center"
+              >
                 <div class="mb-4">
                   <img
                     src="/img/gold.png"
@@ -110,7 +119,10 @@ export default function Home() {
                 <p class="text-sm text-blue-400">Bonus: $500.00</p>
               </div>
 
-              <div class="border border-gray-700 rounded-lg bg-gray-800 p-4 text-center">
+              <div
+                style={{ background: "#242731" }}
+                class="border border-gray-700 rounded-lg  p-4 text-center"
+              >
                 <div class="mb-4">
                   <img
                     src="path/to/gold-icon.png"

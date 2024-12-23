@@ -11,7 +11,10 @@ const TwoFactorAuth = () => {
 
   return (
     <div className="min-h-screen text-white flex flex-col justify-start items-center p-4">
-      <div className=" w-full bg-gray-800 rounded-lg shadow-lg p-6">
+      <div
+        style={{ background: "#242731" }}
+        className=" w-full  rounded-lg shadow-lg p-6"
+      >
         <h1 className="text-2xl font-bold mb-4 text-center">
           Two Factor Authentication
         </h1>
