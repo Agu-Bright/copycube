@@ -76,7 +76,7 @@ export default function Home() {
                   sx={{
                     width: { md: "65%", xs: "100%" },
                     height: "100%",
-                    paddingTop: { md: "0px", xs: "20px" },
+                    paddingTop: { md: "0px", xs: "22px" },
                   }}
                 >
                   <Box
