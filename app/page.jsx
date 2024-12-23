@@ -1,10 +1,13 @@
 "use client";
+import { useEffect } from "react";
+import { useRouter } from "next/navigation";
 
 export default function Home() {
-  return (
-    <div>
-      <h1>Welcome to the App!</h1>
-      <p>This is a placeholder for the root route.</p>
-    </div>
-  );
+  const router = useRouter();
+
+  useEffect(() => {
+    router.push("/home");
+  }, [router]);
+
+  return null;
 }
