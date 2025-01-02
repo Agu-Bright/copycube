@@ -21,6 +21,9 @@ const KycModel = new mongoose.Schema({
   maritalStatus: {
     type: String,
   },
+  sex: {
+    type: String,
+  },
   createdAt: {
     type: Date,
     default: Date.now,

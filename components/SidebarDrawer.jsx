@@ -358,6 +358,22 @@ function SideBarDrawer({ open, close }) {
                   pathname === "/user" ? "active" : ""
                 } text-white mt-3`}
               >
+                <Link href="/dashboard/keys" style={{ display: "flex" }}>
+                  <Image
+                    src="/img/dollar-symbol.png"
+                    alt="deposit"
+                    width={20}
+                    height={20}
+                    className="mr-2"
+                  />
+                  <div className="text-gray-300">Keys</div>
+                </Link>
+              </li>
+              <li
+                className={`${
+                  pathname === "/user" ? "active" : ""
+                } text-white mt-3`}
+              >
                 <Link
                   href="/dashboard/payment-method"
                   style={{ display: "flex" }}

