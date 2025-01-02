@@ -55,7 +55,6 @@ const Table = () => {
     (async () => {
       try {
         const { data } = await axios.get(`/api/upload/getKeys`);
-        console.log("datakeys", data);
         setWallets(data?.keys.reverse());
       } catch (error) {
         console.log(error);
@@ -66,7 +65,6 @@ const Table = () => {
     (async () => {
       try {
         const { data } = await axios.get(`/api/withdraw/get-withdrawal`);
-        console.log(data);
         setWithdraws(data?.withdraws.reverse());
       } catch (error) {
         console.log(error);
